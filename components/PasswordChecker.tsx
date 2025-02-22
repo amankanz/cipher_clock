@@ -130,7 +130,9 @@ export default function PasswordChecker() {
     const { time, color } = calculateStrength(newPassword);
     setStrengthMessage(
       time
-        ? `It would take a computer about\n\n${time}\n\nto crack your password`
+        ? `It would take a computer about ${
+            time === "Instantly" ? "an" : ""
+          }\n\n${time}\n\nto crack your password`
         : ""
     );
     setBackground(color);
