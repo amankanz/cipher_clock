@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { roboto } from "@/lib/fonts";
+import { openSans } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "CryptChron",
+  title: "CipherClock",
   description: "Check your password's security strength",
 };
 
@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} antialiased`}>{children}</body>
+      <body className={`${openSans} antialiased`}>{children}</body>
     </html>
   );
 }
