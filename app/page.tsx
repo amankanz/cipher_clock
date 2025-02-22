@@ -1,13 +1,15 @@
-/*
 import Main from "@/components/Main";
+import PasswordChecker from "@/components/PasswordChecker";
 
 export default function Home() {
   return (
-    <Main></Main>
+    <Main>
+      <PasswordChecker />
+    </Main>
   );
 }
-*/
 
+/*
 "use client";
 import { useState, useCallback } from "react";
 import { Header } from "@/components/Header";
@@ -63,3 +65,64 @@ export default function PasswordChecker() {
     </Main>
   );
 }
+*/
+
+/*
+import CrackTimeMessage from "@/components/CrackTimeMessage";
+import Footer from "@/components/Footer";
+import GeneratePasswordButton from "@/components/GeneratePasswordButton";
+import PasswordInput from "@/components/PasswordInput";
+import { useState } from "react";
+
+export default function PasswordChecker() {
+  const [password, setPassword] = useState("");
+  const [strengthMessage, setStrengthMessage] = useState("");
+  const [background, setBackground] = useState("bg-blue-600");
+
+  const calculateStrength = (password: string) => {
+    if (!password) return "";
+    if (password.length < 6) return "Instantly";
+    if (password.length < 8) return "A few seconds";
+    if (password.length < 12) return "A few minutes";
+    if (password.length < 16) return "A few hours";
+    return "Years";
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    setStrengthMessage(
+      `It would take ${calculateStrength(newPassword)} to crack your password.`
+    );
+    setBackground(newPassword ? "bg-orange-500" : "bg-blue-600");
+  };
+
+  const generatePassword = () => {
+    const chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+    const newPassword = Array.from({ length: 16 }, () =>
+      chars.charAt(Math.floor(Math.random() * chars.length))
+    ).join("");
+    setPassword(newPassword);
+    setStrengthMessage(
+      `It would take ${calculateStrength(newPassword)} to crack your password.`
+    );
+    setBackground("bg-orange-500");
+  };
+
+  return (
+    <div
+      className={`min-h-screen flex flex-col items-center justify-center ${background} text-white p-4`}
+    >
+      <h1 className="text-3xl font-bold">How Secure Is My Password?</h1>
+      <p className="text-lg mt-2">
+        The #1 Password Strength Tool. Trusted and used by millions.
+      </p>
+      <PasswordInput password={password} handleChange={handleChange} />
+      <CrackTimeMessage message={strengthMessage} />
+      <GeneratePasswordButton generatePassword={generatePassword} />
+      <Footer />
+    </div>
+  );
+}
+*/

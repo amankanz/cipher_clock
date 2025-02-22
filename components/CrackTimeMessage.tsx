@@ -1,3 +1,4 @@
+/*
 import { cn } from "@/lib/utils";
 
 interface CrackTimeMessageProps {
@@ -34,3 +35,24 @@ export const CrackTimeMessage = ({
     </div>
   );
 };
+*/
+
+/*
+interface CrackTimeMessageProps {
+  message: string;
+}
+
+export default function CrackTimeMessage({ message }: CrackTimeMessageProps) {
+  return <p className="mt-2 text-lg">{message}</p>;
+}
+*/
+
+interface CrackTimeMessageProps {
+  message: string;
+}
+
+export default function CrackTimeMessage({ message }: CrackTimeMessageProps) {
+  return (
+    <p className="mt-2 text-lg text-center whitespace-pre-line">{message}</p>
+  );
+}
