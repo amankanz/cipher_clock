@@ -116,6 +116,11 @@ export default function PasswordChecker() {
       { maxLen: 20, time: "A few months", color: "bg-teal-500" },
       { maxLen: 25, time: "A few years", color: "bg-blue-500" },
       { maxLen: 30, time: "5 million years", color: "bg-purple-500" },
+      { maxLen: 35, time: "Trillion of years", color: "bg-purple-600" },
+      { maxLen: 40, time: "Quadrillions of years", color: "bg-indigo-500" },
+      { maxLen: 45, time: "Quintillions of years", color: "bg-indigo-600" },
+      { maxLen: 50, time: "Sextillion of years", color: "bg-pink-500" },
+      { maxLen: Infinity, time: "Virtually uncrackable", color: "bg-pink-600" },
     ];
 
     const strength =
@@ -172,7 +177,12 @@ export default function PasswordChecker() {
         <PasswordInput password={password} handleChange={handleChange} />
         <CrackTimeMessage message={strengthMessage} />
         <GeneratePasswordButton generatePassword={generatePassword} />
+        <p className="text-sm text-center md:text-lg mt-8 font-medium italic">
+          We never see, store, or share your passwords. Your data never leaves
+          your device. Complete privacy by design.
+        </p>
       </div>
+
       <Footer />
     </div>
   );
